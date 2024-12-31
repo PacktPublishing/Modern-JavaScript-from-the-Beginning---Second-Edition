@@ -1,0 +1,109 @@
+Feedback
+=============================
+Ch2 Comments and Shortcuts
+* This lesson was very helpful. Well done.
+  Unfortunately the VSCode shortcuts on Windows 10 were not matching the instruction.
+  For example pressing the end key placed the cursor at the end of the line, Ctrl+right did not.
+  It took awhile to learn how to setup VSCode shortcuts to match the course,
+  but once I did, this greatly improved the productivity in VSCode.
+
+Ch2 Primitive Versus Reference Types
+* consider explaining object identity when discussing reference types.
+  when demonstrating variable references, consider using === and Object.is() 
+  to help explain how you can uniquely identify objects in JavaScript.
+
+Ch2 Type Coercion
+* consider showing how JS handles null
+
+Ch2 Working with Strings
+* replace() - the example fails to mention it only replaces the first match
+              starting from the beginning of the string. Explain first match, all matches.
+
+
+Ch3 Nesting, Concat and the Spread Operator
+* The video starts with an example with two arrays.
+  The berries array has a spelling mistake of "rasberry", it should be "raspberry".
+* The Array.from() example produces results similar to the string split() method.
+  It would help to mention split() and then clarify how it differs by explaining
+  how Array.from() has uses beyond strings.
+* The Array.of() example could explain how new Array() can be used to create
+  arrays but can't create a single element array. For example: new Array(3) creates [empty x3]
+* At the end of Destructuring and Naming, Array Destructuring is mentioned but it does not 
+  discuss skipping elements with commas. This is minor but doesn't hurt to mention.
+
+
+Ch7 Keyboard Events
+* Video @ 7:03 uses e.code === 'Digit1' to check input when typing the number 1.
+  This is a minor issue because technically typing shift + 1 is the 1 key.
+  However, typing 1 or ! will return "Digit1" and return true in the conditional.
+  Fix (use keyCode):  1 keyCode is 49, ! keyCode is 33  (both 1 and ! use code "Digit1")
+  Fix (use e.shiftKey): Video @ 9:01 introduces e.shiftKey. You can show how e.shiftKey 
+  can discern the difference between entering 1 or !
+
+Ch7 Form Submission and FormData Object
+* It would help to keep the checkbox input in this demonstration.
+  Video @ 9:46 talks about looping through the entries iterator of the FormData object.
+  When a checkbox is not checked, the [name,value] pair is abscent from the returned entries.
+  A quick mention of this behavior would be helpful. For example, at the bottom of the
+  MDN docs under "Gotchas" it mentions, "The FormData object doesn't include data from the
+  fields that are disabled or the fieldsets that are disabled".
+  https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects
+ 
+
+Ch10 Promises
+* The example is more confusing than helpful. Please provide real world examples and
+  describe common uses for Promises. Your xhr tutorial is the best I've seen yet that
+  does not overuse the useless setTimeout() nonsense in place of real world examples.
+  Please update your Promise tutorial. 
+
+Ch14 OOP Game Challenge
+* Typo: above the source code (spelling of Player) - "You should be able to use the Plyer object like this:"
+
+Ch15 Private Property Underscore Convention
+* Suggestion: At 10min Two separate methods (_processDeposit() & _processWithdraw()) are created.
+  You may consider refactoring this example to use a single method to create a record, then
+  invoke it from both (widthdraw() and deposit()). For example, return an object {date, type, amount, balance}
+  representing a single transaction, then inserting it into the _transactions array.
+ 
+
+Ch17 Installing and Using Node.js
+* Suggestion: Mention the benefits of installing Node.js via a Node Version Manager and demonstrate
+  how to install & use different versions of Node.js. Show basic nvm commands (list, install, use) etc.
+
+Ch17 Webpack Basic Setup
+* The instructor forgot to remind students to run "npm init" before installing
+  Webpack & Webpack CLI as development dependencies.
+
+Ch17 Installing Webpack DevServer Plugin
+* Suggestion: Explain how to configure Webpack to work like Live Server. (compare/contrast).
+  Webpack DevServer has issues with some Antivirus software that Live Server does not.
+  Consider exploring "host", etc.
+
+Ch18 Symbols
+* Suggestion: Clarify Symbols as object keys by explaining real-world usage.
+  The Profile Scroller Project in a later lesson is great, but it would help to
+  discuss practical uses for Symbols as keys with examples. Projects/exercises help. 
+  SEE: https://www.w3docs.com/learn-javascript/symbol-types.html
+  (psuedo private, immutable = prevent collison/modification, meta-programming, debug, etc.)
+  The instruction shows Symbol keys are not visible like standard object keys and not enumerable.
+  However, accessing Symbol key values via Object.getOwnPropertySymbols() seems verbose and ugly.
+  Explain if Symbols are meant to be accessed internally rather externally like standard properties.
+  Maybe show examples with objects with default internal settings(url/path/etc) using Symbols.
+  Possibly compare Symbols with ("const", psuedo private properties with underscores, private properties)
+  to help illustrate practical uses & differences? 
+* Suggestion: clarify use Symbol.for() to help clarify its use/purpose.
+  Maybe demonstrate "sharing symbols" with a simple example?
+
+Ch18 Stacks
+* ISSUE: The for loop within the pop() method of the Stack class does not make sense. 
+  The loop apears useless in this example. It assigns an index that does not exist on
+  the items array, so the last array item gets a value of undefined.
+  Then the length of the array is changed, chopping of the last item. 
+  Why not skip the loop and simply change the length of the items array? The loop seems pointless.
+
+Ch19 Grouping Tests Together
+* This video shows how to group tests with describe() and it()
+  but it fails to show how to invoke Jest to run an individual "Test Suite".
+  For example we can ignore "sum" tests and specify only 'fizzbuzz' tests.
+  EX: npm run test fizzbuzz
+ 
