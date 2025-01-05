@@ -106,4 +106,8 @@ Ch19 Grouping Tests Together
   but it fails to show how to invoke Jest to run an individual "Test Suite".
   For example we can ignore "sum" tests and specify only 'fizzbuzz' tests.
   EX: npm run test fizzbuzz
- 
+
+Ch19 Anagram Algorithm
+* ISSUE: This is minor, but the anagram function does not test for the same word.
+  EX: anagram('bob', 'bob');  returns "truthy" but it is the same word spelled forward
+      or backwards. A better solution is to return "falsy".
