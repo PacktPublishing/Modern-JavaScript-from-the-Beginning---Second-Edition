@@ -1,4 +1,10 @@
 function anagram(str1, str2) {
+  // Return false when both words are the same
+  // of when one or both strings are empty
+  if(str1 === str2 || str1 === '' || str2 === '') {
+    return false;
+  }
+  
   const aCharMap = buildCharMap(str1);
   const bCharMap = buildCharMap(str2);
 
