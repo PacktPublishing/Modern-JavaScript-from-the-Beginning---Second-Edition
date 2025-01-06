@@ -1,9 +1,10 @@
 function anagram(str1, str2) {
-  // Return false when both words are the same
-  // of when one or both strings are empty
-  if(str1 === str2 || str1 === '' || str2 === '') {
-    return false;
-  }
+  // Clean the string of spaces, numbers, & special characters
+  // Return false when both words are the same 
+  const pattern = /^[^A-Za-z]+/g;
+  const cleanStr1 = str1.replaceAll(pattern, "");
+  const cleanStr2 = str2.replaceAll(pattern, "");
+  if (cleanStr1 === cleanStr2) { return false; }
   
   const aCharMap = buildCharMap(str1);
   const bCharMap = buildCharMap(str2);
