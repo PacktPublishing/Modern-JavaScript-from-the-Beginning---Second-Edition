@@ -2,8 +2,8 @@ function anagram(str1, str2) {
   // Clean the string of spaces, numbers, & special characters
   // Return false when both words are the same 
   const pattern = /^[^A-Za-z]+/g;
-  const cleanStr1 = str1.replaceAll(pattern, "");
-  const cleanStr2 = str2.replaceAll(pattern, "");
+  const cleanStr1 = str1.replaceAll(pattern, "").toLowerCase();
+  const cleanStr2 = str2.replaceAll(pattern, "").toLowerCase();
   if (cleanStr1 === cleanStr2) { return false; }
   
   const aCharMap = buildCharMap(str1);
