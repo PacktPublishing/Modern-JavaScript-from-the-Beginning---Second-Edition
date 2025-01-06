@@ -20,5 +20,6 @@ describe('Anagram', () => {
     expect(anagram('', '')).toBeFalsy();  // empty string is false
     expect(anagram('   ', '   ')).toBeFalsy();  // whitespace is false
     expect(anagram('&53', '35&')).toBeFalsy();  // invalid word/characters is false
+    expect(anagram('Hello', 'hello')).toBeFalsy(); // case-insensitve same word is false
   });
 });
