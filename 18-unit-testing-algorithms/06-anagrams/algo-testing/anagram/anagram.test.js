@@ -16,5 +16,9 @@ describe('Anagram', () => {
     expect(anagram('hello', 'fellow')).toBeFalsy();
     expect(anagram('world', 'twirl')).toBeFalsy();
     expect(anagram('cost', 'lost')).toBeFalsy();
+    expect(anagram('hello', 'Hello')).toBeFalsy(); // same word
+    expect(anagram('', '')).toBeFalsy(); // empty strings
+    expect(anagram('  ', '  ')).toBeFalsy(); // whitespace
+    expect(anagram('3rd!', '!dr3')).toBeFalsy(); // invalid characters
   });
 });
