@@ -21,6 +21,13 @@ class LinkedList {
 
   // Insert last node (Tail)
   insertLast(value) {
+
+    // Don't assume the list isn't empty.
+    if (!this._head) {
+      this.insertFirst(value);
+      return;
+    }
+
     const newNode = new Node(value);
     let current = this._head;
 
@@ -66,6 +73,7 @@ class LinkedList {
     while (current) {
       if (count === index) {
         console.log(current._value);
+        break;
       }
       count++;
       current = current.next;
@@ -75,7 +83,7 @@ class LinkedList {
 
   // Remove at index
   removeAt(index) {
-    if (index > this._length) {
+    if (index >= this._length) {
       return;
     }
 
@@ -101,10 +109,12 @@ class LinkedList {
   printListData() {
     let current = this._head;
     let list = '';
+    let separator = '';
 
     while (current) {
-      list += current._value + ' ';
+      list += separator + current._value;
       current = current.next;
+      separator = ' ';
     }
 
     console.log(list);
@@ -119,7 +129,8 @@ class LinkedList {
 
 const list = new LinkedList();
 
-list.insertFirst(100);
+list.insertLast(100);
+list.removeAt(1);  // Nothing to remove
 list.insertFirst(200);
 list.insertFirst(300);
 list.insertLast(50);
